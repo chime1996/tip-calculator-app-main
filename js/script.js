@@ -2,14 +2,24 @@
 
 // Assigning variables in dom
 
-const billValue = document.getElementById("bill");
+const $ = (id) => document.getElementById(id);
 
-const fivePercent = document.getElementById("five");
+const billValue = $("bill");
 
-const tenPercent = document.getElementById("ten");
+const fivePercent = $("five");
 
-const fifteenPercent = document.getElementById("fifteen");
+const tenPercent = $("ten");
 
-const twentyFivePercent = document.getElementById("twenty-five");
+const fifteenPercent = $("fifteen");
 
-const fiftyPercent = document.getElementById("fifty");
+const twentyFivePercent = $("twenty-five");
+
+const fiftyPercent = $("fifty");
+
+const customTip = $("customs");
+
+const numberOfPeople = $("num-ppl");
+
+const tipAmount = $("tip-amt");
+
+const totalAmount = $("total-amt");
