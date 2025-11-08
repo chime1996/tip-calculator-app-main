@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- displays site properly based on user's device -->
-
     <link
       rel="icon"
       type="image/png"
@@ -21,10 +19,8 @@
 
     <link rel="stylesheet" href="./styles/styles.css" />
     <link rel="stylesheet" href="./styles/queries.css" />
-
     <title>Frontend Mentor | Tip calculator app</title>
 
-    <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
     <style>
       .attribution {
         font-size: 11px;
@@ -44,39 +40,41 @@
           <div class="bill-div">
             <h2 class="intro">Bill</h2>
 
-            <div class="tip-input">
+            <div class="tip-input icon-input">
               <img
                 src="/images/icon-dollar.svg"
                 alt="dollar icon"
-                class="currency"
+                class="input-icon"
               />
-
-              <input type="number" class="tip" placeholder="0" />
+              <input type="number" class="tip" placeholder="0" id="bill" />
             </div>
           </div>
 
           <div class="tip-select-div">
             <h2 class="intro tt">Select Tip %</h2>
             <div class="tip-selection">
-              <a href="#" class="tip-percentage">5%</a>
-              <a href="#" class="tip-percentage">10%</a>
-              <a href="#" class="tip-percentage">15%</a>
-              <a href="#" class="tip-percentage">25%</a>
-              <a href="#" class="tip-percentage">50%</a>
-
-              <input type="text" placeholder="Custom" class="custom-tip" />
+              <button class="tip-percentage" id="five">5%</button>
+              <button class="tip-percentage" id="ten">10%</button>
+              <a href="#" class="tip-percentage" id="fifteen">15%</a>
+              <button class="tip-percentage" id="twenty-five">25%</button>
+              <button class="tip-percentage" id="fifty">50%</button>
+              <input
+                type="text"
+                placeholder="Custom"
+                class="custom-tip"
+                id="customsT"
+              />
             </div>
           </div>
 
           <div class="div-numbers">
             <h2 class="intro">Number of People</h2>
-            <div class="number-input">
+            <div class="number-input icon-input">
               <img
                 src="/images/icon-person.svg"
                 alt="person icon"
-                class="currency"
+                class="input-icon"
               />
-
               <input type="number" class="tip" placeholder="0" />
             </div>
           </div>
@@ -105,11 +103,6 @@
       </div>
     </div>
 
-    <!-- <div class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by <a href="#">CHIAGOZIEM</a>.
-    </div> -->
+    <script src="/js/script.js"></script>
   </body>
 </html>

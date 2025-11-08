@@ -215,3 +215,41 @@ body {
   color: var(--dark-green);
   background-color: var(--primary-color);
 }
+
+/* ICON INSIDE INPUT */
+.icon-input {
+  position: relative;
+}
+
+.icon-input .input-icon {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  width: 1.4rem;
+  height: 1.4rem;
+  pointer-events: none;
+}
+
+.icon-input input {
+  width: 100%;
+  padding: 0.8rem 1rem 0.8rem 3rem; /* add space for icon */
+  background-color: var(--light-grey);
+  border-radius: 5px;
+  text-align: right;
+  font-weight: var(--text-weight);
+  font-size: 1.2rem;
+  color: var(--dark-green);
+}
+
+/* Remove number input spin buttons (Chrome, Safari, Edge, Opera) */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove number input arrows (Firefox) */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
