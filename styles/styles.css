@@ -13,6 +13,16 @@ html {
   box-sizing: inherit;
 }
 
+input,
+button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
 :root {
   /* COLORS */
   --primary-color: hsl(172, 67%, 45%);
@@ -116,6 +126,9 @@ body {
   font-size: 1.2rem;
   background-color: var(--grey-2);
   text-align: center;
+}
+
+.custom-tip::placeholder {
   color: var(--dark-green);
 }
 
@@ -146,10 +159,59 @@ body {
 .amt-int-txts {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .amt-intro {
+  color: var(--color-white);
 }
 
 .amt-intro-sec {
+  color: var(--color-white);
+  margin-left: -2rem;
+}
+
+.amt-tip {
+  font-size: var(--font-size);
+  color: var(--primary-color);
+}
+
+.tip-total {
+  margin-top: 3.6rem;
+  margin-bottom: 1.8rem;
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tip--amt-total {
+  display: flex;
+  flex-direction: column;
+}
+
+.txt-head {
+  color: var(--color-white);
+  margin-left: -0.8rem;
+}
+
+.txt-sec {
+  color: var(--color-white);
+}
+
+.amt-intros {
+  font-size: var(--font-size);
+  color: var(--primary-color);
+}
+
+.btn-reset {
+  margin-top: 4.6rem;
+  padding: 0.8rem;
+  width: 12rem;
+  text-transform: uppercase;
+  font-weight: var(--text-weight);
+  font-size: 1.2rem;
+  color: var(--dark-green);
+  background-color: var(--primary-color);
 }
