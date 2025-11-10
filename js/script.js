@@ -26,6 +26,28 @@ const totalAmount = $("total-amt");
 
 const reset = document.querySelector(".btn-reset");
 
+//to check validity
+function validity() {
+  if (billValue.value === "" || Number(billValue.value === 0)) {
+    billValue.setCustomValidity("bill can't be 0");
+    billValue.reportValidity();
+    totalAmount.textContent = "$0.00";
+    tipAmount.textContent = "$0.00";
+    return;
+  } else if (
+    numberOfPeople.value === "" ||
+    Number(numberOfPeople.value === 0)
+  ) {
+    numberOfPeople.setCustomValidity("people can't be 0");
+    numberOfPeople.reportValidity();
+    totalAmount.textContent = "$0.00";
+    tipAmount.textContent = "$0.00";
+    return;
+  }
+}
+
+function tipCalc() {}
+
 fivePercent.addEventListener("click", function () {
   const bill = billValue.value;
 
@@ -34,18 +56,16 @@ fivePercent.addEventListener("click", function () {
   let fiveTotal = tipFive + Number(bill); // ask question here
 
   /*
-  Question 2
-  how do i remove number from infinity or how to curtail excess numbers like 1.3333333333333 thats to round off.
+  
 
 
   3. How to make sure there is no empty input eg, if number is empty, it will display enter number of people.
 
-  4. why did you reset bill and number of people to zero.
 
-  5. how to make custom percent accept enter key
   */
 
   //tip per person
+  validity();
   const people = Number(numberOfPeople.value);
 
   const totaltips = tipFive / people;
@@ -138,7 +158,7 @@ customTip.addEventListener("keydown", function (event) {
 
   // enable enter key to function
   if (event.key === "Enter") {
-    const custom = Number(customTip.value);
+    const custom = Number(customTip.value); // this takes in the value that will be input in the text input. just like billValue.value
 
     // calculate tip
     let tipCustom = Number((custom / 100) * bill);
