@@ -24,25 +24,32 @@ const tipAmount = $("tip-amt");
 
 const totalAmount = $("total-amt");
 
+const billError = $("bill-error");
+const peopleError = $("people-error");
+
 const reset = document.querySelector(".btn-reset");
 
 //to check validity
 function validity() {
-  if (billValue.value === "" || Number(billValue.value === 0)) {
-    billValue.setCustomValidity("bill can't be 0");
-    billValue.reportValidity();
+  // Clear previous messages
+  billError.textContent = "";
+  peopleError.textContent = "";
+
+  if (billValue.value === "" || Number(billValue.value) === 0) {
+    billError.textContent = "Can't be 0";
+    billError.style.display = "block";
     totalAmount.textContent = "$0.00";
     tipAmount.textContent = "$0.00";
-    return;
+    return false; // invalid
   } else if (
     numberOfPeople.value === "" ||
-    Number(numberOfPeople.value === 0)
+    Number(numberOfPeople.value) === 0
   ) {
-    numberOfPeople.setCustomValidity("people can't be 0");
-    numberOfPeople.reportValidity();
+    peopleError.textContent = "Can't be 0";
+    peopleError.style.display = "block";
     totalAmount.textContent = "$0.00";
     tipAmount.textContent = "$0.00";
-    return;
+    return false; // invalid
   }
 }
 
@@ -50,6 +57,29 @@ function tipCalc() {}
 
 fivePercent.addEventListener("click", function () {
   const bill = billValue.value;
+
+  function validity() {
+    // Clear previous messages
+    billError.textContent = "";
+    peopleError.textContent = "";
+
+    if (billValue.value === "" || Number(billValue.value) === 0) {
+      billError.textContent = "Can't be 0";
+      billError.style.display = "block";
+      totalAmount.textContent = "$0.00";
+      tipAmount.textContent = "$0.00";
+      return false; // invalid
+    } else if (
+      numberOfPeople.value === "" ||
+      Number(numberOfPeople.value) === 0
+    ) {
+      peopleError.textContent = "Can't be 0";
+      peopleError.style.display = "block";
+      totalAmount.textContent = "$0.00";
+      tipAmount.textContent = "$0.00";
+      return false; // invalid
+    }
+  }
 
   // calculate tip
   let tipFive = Number((5 / 100) * bill);
@@ -65,7 +95,7 @@ fivePercent.addEventListener("click", function () {
   */
 
   //tip per person
-  validity();
+
   const people = Number(numberOfPeople.value);
 
   const totaltips = tipFive / people;
@@ -78,6 +108,8 @@ fivePercent.addEventListener("click", function () {
 });
 
 tenPercent.addEventListener("click", function () {
+  if (!validity()) return;
+
   const bill = billValue.value;
 
   // calculate tip
@@ -97,6 +129,7 @@ tenPercent.addEventListener("click", function () {
 });
 
 fifteenPercent.addEventListener("click", function () {
+  if (!validity()) return;
   const bill = billValue.value;
 
   // calculate tip
@@ -116,6 +149,7 @@ fifteenPercent.addEventListener("click", function () {
 });
 
 twentyFivePercent.addEventListener("click", function () {
+  if (!validity()) return;
   const bill = billValue.value;
 
   // calculate tip
@@ -135,6 +169,7 @@ twentyFivePercent.addEventListener("click", function () {
 });
 
 fiftyPercent.addEventListener("click", function () {
+  if (!validity()) return;
   const bill = billValue.value;
 
   // calculate tip
@@ -154,6 +189,7 @@ fiftyPercent.addEventListener("click", function () {
 });
 
 customTip.addEventListener("keydown", function (event) {
+  if (!validity()) return;
   const bill = billValue.value;
 
   // enable enter key to function
@@ -182,6 +218,8 @@ customTip.addEventListener("keydown", function (event) {
 reset.addEventListener("click", function () {
   billValue.value = "";
   numberOfPeople.value = "";
+  peopleError.textContent = "";
+  billError.textContent = "";
   tipAmount.textContent = "$0.00";
   totalAmount.textContent = "$0.00";
   customTip.value = "";
