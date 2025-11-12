@@ -51,52 +51,21 @@ function validity() {
     tipAmount.textContent = "$0.00";
     return false; // invalid
   }
+  return true;
 }
 
 function tipCalc() {}
 
 fivePercent.addEventListener("click", function () {
-  const bill = billValue.value;
-
-  function validity() {
-    // Clear previous messages
-    billError.textContent = "";
-    peopleError.textContent = "";
-
-    if (billValue.value === "" || Number(billValue.value) === 0) {
-      billError.textContent = "Can't be 0";
-      billError.style.display = "block";
-      totalAmount.textContent = "$0.00";
-      tipAmount.textContent = "$0.00";
-      return false; // invalid
-    } else if (
-      numberOfPeople.value === "" ||
-      Number(numberOfPeople.value) === 0
-    ) {
-      peopleError.textContent = "Can't be 0";
-      peopleError.style.display = "block";
-      totalAmount.textContent = "$0.00";
-      tipAmount.textContent = "$0.00";
-      return false; // invalid
-    }
-  }
+  const bill = Number(billValue.value);
+  const people = Number(numberOfPeople.value);
+  if (!validity()) return;
 
   // calculate tip
   let tipFive = Number((5 / 100) * bill);
   let fiveTotal = tipFive + Number(bill); // ask question here
 
-  /*
-  
-
-
-  3. How to make sure there is no empty input eg, if number is empty, it will display enter number of people.
-
-
-  */
-
   //tip per person
-
-  const people = Number(numberOfPeople.value);
 
   const totaltips = tipFive / people;
 
